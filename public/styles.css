@@ -67,12 +67,33 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+
   column-gap: 50px;
   background-color: rgb(255, 212, 212);
   margin: 150px;
   padding: 30px;
   border-radius: 10px;
+}
+
+
+
+.API-body .scrollable-list {
+  font-family: "Roboto Condensed", sans-serif;
+  max-height: 300px;
+  max-width: 400px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.API-body .scrollable-list ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.API-body .scrollable-list li {
+  padding: 5px 0;
 }
 
 
