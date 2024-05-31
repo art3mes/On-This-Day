@@ -1,17 +1,19 @@
+// DateContext.js
 import React, { createContext, useState } from 'react';
 import dayjs from 'dayjs';
 
 export const DateContext = createContext();
 
 export const DateProvider = ({ children }) => {
-    const [selectedDate, setSelectedDate] = useState(dayjs());
-    const [day, setDay] = useState(selectedDate.format('DD'));
-    const [month, setMonth] = useState(selectedDate.format('MMMM'));
+    const today = dayjs(); // Get today's date
+    const [selectedDate, setSelectedDate] = useState(today);
+    const [day, setDay] = useState(today.format('DD'));
+    const [month, setMonth] = useState(today.format('MM'));
 
     const handleDateChange = (newDate) => {
         setSelectedDate(newDate);
         setDay(newDate.format('DD'));
-        setMonth(newDate.format('MMMM'));
+        setMonth(newDate.format('MM'));
     };
 
     return (

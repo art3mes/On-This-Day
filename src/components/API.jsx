@@ -10,11 +10,12 @@ function API() {
     const [loading, setLoading] = useState(true);
 
     const fetchData = async () => {
+        console.log(day, month);
         try {
-            const response = await axios.get(`https://api.wikimedia.org/feed/v1/wikipedia/en/onthisday/births/10/02`, {});
+            const response = await axios.get(`https://api.wikimedia.org/feed/v1/wikipedia/en/onthisday/births/${month}/${day}`, {});
             setJson(response.data.births);
         } catch (error) {
-            console.error("BACKUP DATA IS USED. Error fetching data:", error);
+            console.error("Error fetching data:", error);
         } finally {
             setLoading(false); // Set loading to false after data is fetched
         }
@@ -23,6 +24,7 @@ function API() {
     useEffect(() => {
         fetchData();
         // eslint-disable-next-line react-hooks/exhaustive-deps
+        setLoading(true);
     }, [day, month]); // Re-fetch data when day or month changes
 
     if (loading) {
