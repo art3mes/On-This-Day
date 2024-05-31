@@ -33,6 +33,7 @@ function API() {
 
     return (
         <div className='API-body'>
+            Birthdays on {day}/{month}
             <div className='scrollable-list'>
                 <ul>
                     {json.map((item, index) => (
