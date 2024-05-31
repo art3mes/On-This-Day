@@ -3,17 +3,10 @@ import { DemoItem } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
-import dayjs from 'dayjs';
+import { DateContext } from './DateContext';
 
 export default function Calendar() {
-    const [selectedDate, setSelectedDate] = React.useState(dayjs());
-
-    const handleDateChange = (newDate) => {
-        setSelectedDate(newDate);
-        const day = newDate.format('DD');
-        const month = newDate.format('MMMM');
-        console.log(`Day: ${day}, Month: ${month}`);
-    };
+    const { selectedDate, handleDateChange } = React.useContext(DateContext);
 
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs}>

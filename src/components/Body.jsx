@@ -1,14 +1,19 @@
 import React from 'react';
-import Calendar from './Calendar';
 import FavouriteBirthdays from './FavoriteBirthdays';
+import { DateProvider } from './DateContext';
+import Calendar from './Calendar';
+import API from './API';
+
 
 function Body() {
     return (
-        <div className='body-main'>
-            <div className='body-left'><Calendar /></div>
-            <div className='body-middle'>birthdays</div>
-            <div className='body-right'>< FavouriteBirthdays /></div>
-        </div>
+        <DateProvider>
+            <div className='body-main'>
+                <div className='body-left'><Calendar /></div>
+                <div className='body-middle'><API /></div>
+                <div className='body-right'>< FavouriteBirthdays /></div>
+            </div>
+        </DateProvider>
 
     );
 }
