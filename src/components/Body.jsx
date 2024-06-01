@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { DateProvider } from './DateContext';
 import Calendar from './Calendar';
 import API from './API';

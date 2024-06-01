@@ -3,7 +3,6 @@ import React, { useState, useEffect, useContext } from 'react';
 import { DateContext } from './DateContext';
 import axios from "axios";
 import Loading from './Loading';
-import FavouriteBirthdays from './FavoriteBirthdays';
 
 function API() {
     const [json, setJson] = useState([]);
@@ -37,10 +36,8 @@ function API() {
             }
 
             if (newSelectedItems[date].includes(item)) {
-                // Remove item from the list if it's already selected
                 newSelectedItems[date] = newSelectedItems[date].filter(selectedItem => selectedItem !== item);
 
-                // If the date has no more items, remove the date key
                 if (newSelectedItems[date].length === 0) {
                     delete newSelectedItems[date];
                 }
@@ -48,35 +45,33 @@ function API() {
                 // Add item to the list if it's not already selected
                 newSelectedItems[date] = [...newSelectedItems[date], item];
             }
-
+            localStorage.setItem("ITEMS", newSelectedItems);
             return newSelectedItems;
         });
     };
 
 
     if (loading) {
-        return <Loading type="bars" color="rgb(138, 43, 226)" height={100} width={100} />;
+        return <div className='loading'><Loading type="bars" color="rgb(138, 43, 226)" height={100} width={100} /></div>;
     }
 
     const dateKey = `${day}/${month}`;
 
     return (
         <div className='API-body'>
-            Birthdays on {dateKey}
-            <div className='API-sub-body'>
-                <div className='scrollable-list'>
-                    <ul>
-                        {json.map((item, index) => (
-                            <li key={index}>
-                                <input
-                                    type="checkbox"
-                                    checked={selectedItems[dateKey]?.includes(item.text) || false}
-                                    onChange={() => handleCheckboxChange(dateKey, item.text)}
-                                /> {item.text}
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+            <span>Birthdays on {dateKey}</span>
+            <div className='scrollable-list'>
+                <ul>
+                    {json.map((item, index) => (
+                        <li key={index}>
+                            <input
+                                type="checkbox"
+                                checked={selectedItems[dateKey]?.includes(item.text) || false}
+                                onChange={() => handleCheckboxChange(dateKey, item.text)}
+                            /> {item.text}
+                        </li>
+                    ))}
+                </ul>
             </div>
         </div>
     );

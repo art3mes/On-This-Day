@@ -17,23 +17,6 @@ body {
   font-style: normal;
 }
 
-.rowdies-light {
-  font-family: "Rowdies", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-}
-
-.rowdies-regular {
-  font-family: "Rowdies", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.rowdies-bold {
-  font-family: "Rowdies", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
 
 /* ***************************FONT END***************************** */
 .header-body {
@@ -76,16 +59,20 @@ body {
   border-radius: 10px;
 }
 
-.API-body {}
 
-.API-sub-body {
+.API-body {
 
   display: flex;
-  flex-direction: row;
   column-gap: 50px;
+  flex-direction: column;
 }
 
-.API-sub-body .scrollable-list {
+.API-body span {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.API-body .scrollable-list {
 
   max-height: 300px;
   max-width: 400px;
@@ -94,47 +81,27 @@ body {
   padding: 10px;
 }
 
-.API-sub-body .scrollable-list ul {
+.API-body .scrollable-list ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
-.API-sub-body .scrollable-list li {
+.API-body .scrollable-list li {
   padding: 5px 0;
 }
 
+.loading {
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-
-
+.favourite-bd {
+  max-width: 330px;
+}
 
 
 
 /* ****************************MEDIA********************************** */
-
-@media only screen and (max-width: 768px) {
-
-  html,
-  body {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-
-  .header-body {
-    height: 70px;
-    width: 100%;
-  }
-
-  .header-text {
-    font-size: 28px;
-  }
-
-
-  .header-text span {
-    font-size: 8px;
-    vertical-align: super;
-  }
-
-
-
-}
