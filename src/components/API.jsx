@@ -53,6 +53,7 @@ function API() {
                         <li key={index}>
                             <input
                                 type="checkbox"
+                                checked={selectedItems.includes(item.text)}
                                 onChange={() => handleCheckboxChange(item.text)}
                             /> {item.text}
                         </li>
