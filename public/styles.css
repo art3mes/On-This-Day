@@ -53,10 +53,12 @@ body {
 
 
   column-gap: 50px;
-  background-color: rgb(255, 212, 212);
+  background-color: rgba(255, 255, 255, 0.9);
+
   margin: 150px;
-  padding: 30px;
+  padding: 35px;
   border-radius: 10px;
+  border: 8px inset #f450ff;
 }
 
 

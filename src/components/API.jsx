@@ -23,8 +23,8 @@ function API() {
 
     useEffect(() => {
         fetchData();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
         setLoading(true);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [day, month]); // Re-fetch data when day or month changes
 
     const handleCheckboxChange = (date, item) => {
