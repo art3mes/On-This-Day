@@ -1,4 +1,3 @@
-// DateContext.js
 import React, { createContext, useState } from 'react';
 import dayjs from 'dayjs';
 
@@ -9,6 +8,7 @@ export const DateProvider = ({ children }) => {
     const [selectedDate, setSelectedDate] = useState(today);
     const [day, setDay] = useState(today.format('DD'));
     const [month, setMonth] = useState(today.format('MM'));
+    const [selectedItems, setSelectedItems] = useState({});
 
     const handleDateChange = (newDate) => {
         setSelectedDate(newDate);
@@ -17,7 +17,7 @@ export const DateProvider = ({ children }) => {
     };
 
     return (
-        <DateContext.Provider value={{ selectedDate, day, month, handleDateChange }}>
+        <DateContext.Provider value={{ selectedDate, day, month, handleDateChange, selectedItems, setSelectedItems }}>
             {children}
         </DateContext.Provider>
     );

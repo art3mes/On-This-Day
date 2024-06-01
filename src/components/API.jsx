@@ -6,10 +6,9 @@ import Loading from './Loading';
 import FavouriteBirthdays from './FavoriteBirthdays';
 
 function API() {
-    const { day, month } = useContext(DateContext);
     const [json, setJson] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [selectedItems, setSelectedItems] = useState({});
+    const { day, month, selectedItems, setSelectedItems } = useContext(DateContext);
 
     const fetchData = async () => {
         console.log(day, month);
@@ -78,7 +77,6 @@ function API() {
                         ))}
                     </ul>
                 </div>
-                <FavouriteBirthdays selectedItems={selectedItems} />
             </div>
         </div>
     );

@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { DateContext } from './DateContext';
 
-const FavouriteBirthdays = ({ selectedItems }) => {
+const FavouriteBirthdays = () => {
+    const { selectedItems } = useContext(DateContext);
+
     return (
         <div>
             <h3>Favourite Birthdays</h3>
