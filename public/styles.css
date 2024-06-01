@@ -75,12 +75,18 @@ body {
   border-radius: 10px;
 }
 
-
 .API-body {
   font-family: "Roboto Condensed", sans-serif;
 }
 
-.API-body .scrollable-list {
+.API-sub-body {
+
+  display: flex;
+  flex-direction: row;
+  column-gap: 50px;
+}
+
+.API-sub-body .scrollable-list {
 
   max-height: 300px;
   max-width: 400px;
@@ -89,17 +95,15 @@ body {
   padding: 10px;
 }
 
-.API-body .scrollable-list ul {
+.API-sub-body .scrollable-list ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
-.API-body .scrollable-list li {
+.API-sub-body .scrollable-list li {
   padding: 5px 0;
 }
-
-
 
 
 
