@@ -8,6 +8,7 @@ function API() {
     const { day, month } = useContext(DateContext);
     const [json, setJson] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [selectedItems, setSelectedItems] = useState([]);
 
     const fetchData = async () => {
         console.log(day, month);
@@ -27,6 +28,18 @@ function API() {
         setLoading(true);
     }, [day, month]); // Re-fetch data when day or month changes
 
+    const handleCheckboxChange = (item) => {
+        setSelectedItems((prevSelectedItems) => {
+            if (prevSelectedItems.includes(item)) {
+                // Remove item from the list if it's already selected
+                return prevSelectedItems.filter(selectedItem => selectedItem !== item);
+            } else {
+                // Add item to the list if it's not already selected
+                return [...prevSelectedItems, item];
+            }
+        });
+    };
+
     if (loading) {
         return <Loading type="bars" color="rgb(138, 43, 226)" height={100} width={100} />; // Render Loading component while data is being fetched
     }
@@ -37,12 +50,19 @@ function API() {
             <div className='scrollable-list'>
                 <ul>
                     {json.map((item, index) => (
-                        <li key={index}>{item.text}</li>
+                        <li key={index}>
+                            <input
+                                type="checkbox"
+                                onChange={() => handleCheckboxChange(item.text)}
+                            /> {item.text}
+                        </li>
                     ))}
                 </ul>
             </div>
+            {selectedItems}
         </div>
     );
+
 }
 
 export default API;
