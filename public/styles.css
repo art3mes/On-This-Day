@@ -102,6 +102,13 @@ body {
   max-width: 330px;
 }
 
+.favourite-bd h3 {
+  text-decoration: underline;
+}
+
+.favourite-bd h4 {
+  font-size: 18px;
+}
 
 
 /* ****************************MEDIA********************************** */
