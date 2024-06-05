@@ -45,11 +45,10 @@ function API() {
                 // Add item to the list if it's not already selected
                 newSelectedItems[date] = [...newSelectedItems[date], item];
             }
-            localStorage.setItem("ITEMS", newSelectedItems);
+
             return newSelectedItems;
         });
     };
-
 
     if (loading) {
         return <div className='loading'><Loading type="bars" color="rgb(138, 43, 226)" height={100} width={100} /></div>;
@@ -75,8 +74,6 @@ function API() {
             </div>
         </div>
     );
-
 }
 
 export default API;
-
